@@ -15,6 +15,14 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::resource('photos', 'PhotoController');
+
+//Route::redirect('/', 'there', 200);
+
+Route::get('/there', function(){
+	return 'there';
+});
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
