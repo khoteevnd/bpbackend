@@ -1,8 +1,10 @@
 <?php
-
 namespace budprirodi\Http\Controllers;
 
+include database_path()."\\migrations\\2014_10_12_000000_create_users_table.php";
+
 use budprirodi\Photo;
+use CreateUsersTable;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
@@ -14,9 +16,11 @@ class PhotoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
     public function index()
     {
-        return $url = $url = Storage::url('photos/text.txt');
+        $mig = new CreateUsersTable();
+        $mig->up();
     }
 
     /**
@@ -26,7 +30,7 @@ class PhotoController extends Controller
      */
     public function create()
     {
-        //
+        return view('photos.photouploadform');
     }
 
     /**
@@ -37,7 +41,7 @@ class PhotoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return view('photos.photostore');
     }
 
     /**
