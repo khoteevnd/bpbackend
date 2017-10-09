@@ -176,6 +176,10 @@ return [
         // budprirodi\Providers\BroadcastServiceProvider::class,
         budprirodi\Providers\EventServiceProvider::class,
         budprirodi\Providers\RouteServiceProvider::class,
+        /*
+         * Custom Service
+         */
+        Intervention\Image\ImageServiceProvider::class
 
     ],
 
@@ -225,6 +229,8 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
+        // Custom Class Aliases
+        'Image' => Intervention\Image\Facades\Image::class,
 
     ],
 

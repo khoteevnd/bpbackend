@@ -19,8 +19,7 @@ class PhotoController extends Controller
 
     public function index()
     {
-        $mig = new CreateUsersTable();
-        $mig->up();
+
     }
 
     /**
