@@ -1,0 +1,66 @@
+#gramoti
+  *
+    margin: 0px
+    padding: 0px
+  width: 100%
+  height: auto
+  display: flex
+  flex-direction: column
+  justify-content: center
+  align-items: center
+  background-color: $grad16
+  .gramoti-header
+    padding:
+      top: 20px
+      bottom: 60px
+    text-align: center
+    h1
+      font-size: 4em
+      font-weight: bold
+      color: $color-text-dark
+      text-shadow: 0px 5px 20px rgba(2,45,0,0.8)
+      margin: 0px
+      padding: 0px
+  .gramoti-content
+    width: 100%
+    height: auto
+    .owl-stage
+      padding-top: 50px
+      padding-bottom: 50px
+  .owl-item
+    height: auto
+    background: inherit
+    img
+      width: auto
+      display: block
+      padding: 0px
+      margin: 0 auto
+      //border: 10px solid red
+      filter: drop-shadow(5px 5px 10px #888)
+
+  .owl-nav
+    transform: translate(0, -50%)
+    position: absolute
+    top: 50%
+    width: 100%
+  .owl-next, .owl-prev
+    display: flex
+    flex-direction: column
+    justify-content: center
+    align-items: center
+    width: 70px
+    height: 70px
+    border-radius: 50%
+    text-align: center
+    background-color: rgba(15,15,15,0.3)
+    &:hover
+  .owl-prev
+    float: left
+    margin:
+      left: 5%
+    &:hover
+  .owl-next
+    float: right
+    margin:
+      right: 5%
+    &:hover
