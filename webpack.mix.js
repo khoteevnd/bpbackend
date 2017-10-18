@@ -10,19 +10,19 @@ let mix = require('laravel-mix');
  | file for the application as well as bundling up all the JS files.
  |
  */
-
+//
 mix.js('resources/assets/js/app.js', 'public/js');
 mix.js('resources/assets/js/custom.js', 'public/js');
 mix.js('resources/assets/js/owl.js', 'public/js');
 mix.js('resources/assets/js/SmoothScroll.js', 'public/js');
-//css libs
+// CSS libs
 mix.sass('resources/assets/sass/custom.sass', 'public/css');
 mix.copy('resources/assets/libs/animate.css/animate.min.css', 'public/css/libs/animate.min.css');
 mix.copy('resources/assets/libs/owl.carousel/dist/assets/owl.carousel.min.css', 'public/css/libs/owl.carousel.min.css');
 mix.copyDirectory('resources/assets/fonts/mapglyphs/2.0', 'public/css/fonts/mapglyphs');
 mix.copyDirectory('resources/assets/libs/font-awesome/css', 'public/css/fonts/font-awesome/css');
 mix.copyDirectory('resources/assets/libs/font-awesome/fonts', 'public/css/fonts/font-awesome/fonts');
-//js libs
+// JS libs
 mix.copy('resources/assets/libs/jquery/dist/jquery.min.js', 'public/js/libs/jquery.min.js');
 mix.copy('resources/assets/libs/holderjs/holder.min.js', 'public/js/libs/holder.min.js');
 mix.copy('resources/assets/libs/owl.carousel/dist/owl.carousel.min.js', 'public/js/libs/owl.carousel.min.js');

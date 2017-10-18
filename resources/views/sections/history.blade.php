@@ -1,4 +1,3 @@
-
 <!-- START HISTORY-->
 <section id="history">
     <div class="history-header">
