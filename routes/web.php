@@ -24,6 +24,9 @@ Route::post('profile', 'UserController@update_avatar');
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+Route::get('/getfiles/{dir}', 'UserController@getFiles');
+Route::get('/getallfiles/{dir}', 'UserController@getAllFiles');
+
 //Route::get('/','FrontController@index');
 /*Route::get('/products','FrontController@products');
 Route::get('/products/details/{id}','FrontController@product_details');
