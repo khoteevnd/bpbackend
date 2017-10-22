@@ -3,14 +3,20 @@
 Route::get('/', function () {
     return view('welcome');
 });
+//Route::middleware(['locate'])->group(function () {
+    Route::prefix('uk')->group(function () {
+        Route::resource('/photos', 'PhotoController');
+        Route::resource('/albums', 'AlbumsController');
+    });
 
-Route::resource('photos', 'PhotoController');
+    Route::prefix('en')->group(function () {
+        Route::resource('/photos', 'PhotoController');
+        Route::resource('/albums', 'AlbumsController');
+    });
 
-//Route::redirect('/', 'there', 200);
-
-Route::get('/there', function(){
-	return 'there';
-});
+    Route::resource('/photos', 'PhotoController');
+    Route::resource('/albums', 'AlbumsController');
+//});
 
 Auth::routes();
 Route::get('profile', 'UserController@profile')->name('profile');

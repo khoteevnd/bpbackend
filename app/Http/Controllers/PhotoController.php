@@ -1,10 +1,10 @@
 <?php
 namespace budprirodi\Http\Controllers;
 
-include database_path()."\\migrations\\2014_10_12_000000_create_users_table.php";
+//include database_path()."\\migrations\\2014_10_12_000000_create_users_table.php";
 
 use budprirodi\Photo;
-use CreateUsersTable;
+//use CreateUsersTable;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
@@ -40,6 +40,7 @@ class PhotoController extends Controller
      */
     public function store(Request $request)
     {
+        dd($request);
         return view('photos.photostore');
     }
 
