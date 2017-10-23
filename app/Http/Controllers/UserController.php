@@ -2,7 +2,10 @@
 
 namespace budprirodi\Http\Controllers;
 
+use Validator;
+use Illuminate\Http\FileHelpers;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use Illuminate\Session\Store;
 use Illuminate\Support\Facades\Auth;
 use Intervention\Image\Facades\Image;
@@ -11,74 +14,98 @@ use Illuminate\Http\File;
 
 class UserController extends Controller
 {
-		protected $upload_path = DIRECTORY_SEPARATOR."uploads".DIRECTORY_SEPARATOR."avatars".DIRECTORY_SEPARATOR;
+    use FileHelpers;
 
-		public function profile()
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
+    public function profile()
     {
         return view('users.profile', ['user' => Auth::user()] );
     }
 
-	/**
-	 * @param Request $request
-	 * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
-	 */
-	public function update_avatar(Request $request)
-  {
-        if(!$request->hasFile('avatar')) {
-            return response("Файл не завантажений!");
+    /**
+    * @param Request $request
+    * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+    */
+    public function update_avatar(Request $request)
+    {
+
+
+        $pathToSaveAvatar = 'public/avatar';
+
+        $validator = Validator::make($request->all(), [
+            'avatar' => 'required|mimes:jpeg,bmp,png|max:1000',
+        ]);
+
+        if ($validator->fails()) {
+            return redirect('profile')
+                ->withErrors($validator);
         }
 
-        $avatar = $request->file('avatar')->store('avatar');
-        $arr['avatar'] = $avatar;
+        $image = Image::make($request->file('avatar'));
 
-        $visibility = Storage::getVisibility($avatar);
-        $arr['visibility'] = $visibility;
+        $response = function($image){
+            $response = Response::setContent($image);
+            $response->header('Content-Type', 'image/jpg');
+            return $response;
+        };
 
-	      $exists = Storage::disk('local')->exists($avatar);
-	      $arr['exists'] = $exists;
+        if($image->height() == $image->width() ) {
+            $image->resize(300,300, function($constraint){
+                $constraint->aspectRatio();
+                $constraint->upsize();
+            });
 
-	      $setVisibility = Storage::setVisibility($avatar, 'private');
+            $response($image);
+        } else if ($image->height() > $image->width()){
+            $image->resize(300, null, function($constraint){
+                $constraint->aspectRatio();
+                $constraint->upsize();
+            });
+            $response($image);
+        } else {
+            $image->resize(null, 300, function ($constraint){
+                $constraint->aspectRatio();
+                $constraint->upsize();
+            });
+            $response($image);
+        }
 
-	      dd(Storage::files("public"), $exists);
-            //$filename = time()."_".$avatar->getClientOriginalName();
-            //dd($filename, $avatar);
-/*            Image::make($avatar)->resize(300, 300)->save(public_path($this->upload_path.$filename));
+        $user = Auth::user();
 
-            $user = Auth::user();
+        Storage::delete($user->avatar);
 
-            if($user->avatar != "" || $user->avatar != null)
-            {
-            	dd($user->avatar);
-            } else {
-            	dd($user-avatar);
-            }
-            $user->avatar = $filename;
-            $user->save();*/
+        $avatar = $request->file('avatar')->storePublicly($pathToSaveAvatar, ['visibility' => 'public']);
+        $user->avatar = $avatar;
+        $user->save();
 
-        return view('users.profile', ['user' => Auth::user()] );//, array('user' => Auth::user()) );
+        return view('users.profile', ['user' => Auth::user()] );
     }
 
     public function getFiles($dir)
     {
-    	//dd($dir);
+        //dd($dir);
 
-    	$files = Storage::files($dir);
+        $files = Storage::files($dir);
 
-	    dd($files);
+        dd($files);
     }
 
     public function getAllFiles($dir)
     {
 
-			$files = Storage::allFiles();
-			$directories = Storage::allDirectories();
-			dd($files, $directories);
+        $files = Storage::allFiles();
+        $directories = Storage::allDirectories();
+        dd($files, $directories);
     }
 
     public function storage()
     {
-	    $files = Storage::allFiles();
+        $files = Storage::allFiles();
 
-	    dd($files);
+        dd($files);
     }
 }
