@@ -2,10 +2,12 @@
 
 namespace budprirodi\Http\Controllers;
 
+use Illuminate\Support\Str;
 use Validator;
 use Illuminate\Http\FileHelpers;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Http\UploadedFile;
 use Illuminate\Session\Store;
 use Illuminate\Support\Facades\Auth;
 use Intervention\Image\Facades\Image;
@@ -32,12 +34,11 @@ class UserController extends Controller
     */
     public function update_avatar(Request $request)
     {
-
-
-        $pathToSaveAvatar = 'public/avatar';
+        $pathToSaveAvatar = 'app'.DIRECTORY_SEPARATOR.'public'.DIRECTORY_SEPARATOR.'avatar'.DIRECTORY_SEPARATOR;
+        $pathTmp = 'tmp'.DIRECTORY_SEPARATOR;
 
         $validator = Validator::make($request->all(), [
-            'avatar' => 'required|mimes:jpeg,bmp,png|max:1000',
+            'avatar' => 'required|image|mimes:jpeg,jpg,bmp,png,gif|max:1000',
         ]);
 
         if ($validator->fails()) {
@@ -47,10 +48,19 @@ class UserController extends Controller
 
         $image = Image::make($request->file('avatar'));
 
-        $response = function($image){
-            $response = Response::setContent($image);
-            $response->header('Content-Type', 'image/jpg');
-            return $response;
+        $saveTmpImage = function(&$image) use ($request, $pathToSaveAvatar, $pathTmp) {
+
+            $tmpFileName = Str::random(40)."_".$request->avatar->getClientOriginalName();
+
+            $image->save(storage_path($pathToSaveAvatar.$tmpFileName), 90);
+
+            $tmpFullPath = storage_path($pathToSaveAvatar.$tmpFileName);
+
+            if (file_exists($tmpFullPath) && is_file($tmpFullPath)){
+                return $tmpFileName;
+            }
+
+            return false;
         };
 
         if($image->height() == $image->width() ) {
@@ -58,29 +68,28 @@ class UserController extends Controller
                 $constraint->aspectRatio();
                 $constraint->upsize();
             });
-
-            $response($image);
         } else if ($image->height() > $image->width()){
             $image->resize(300, null, function($constraint){
                 $constraint->aspectRatio();
                 $constraint->upsize();
             });
-            $response($image);
         } else {
             $image->resize(null, 300, function ($constraint){
                 $constraint->aspectRatio();
                 $constraint->upsize();
             });
-            $response($image);
         }
+
+        $tmpPath = $saveTmpImage($image);
 
         $user = Auth::user();
 
-        Storage::delete($user->avatar);
+        Storage::delete('public'.DIRECTORY_SEPARATOR.'avatar'.DIRECTORY_SEPARATOR.$user->avatar);
 
-        $avatar = $request->file('avatar')->storePublicly($pathToSaveAvatar, ['visibility' => 'public']);
-        $user->avatar = $avatar;
+        $user->avatar = $tmpPath;
         $user->save();
+
+        $image->destroy();
 
         return view('users.profile', ['user' => Auth::user()] );
     }
