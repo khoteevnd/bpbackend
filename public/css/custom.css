@@ -1171,6 +1171,10 @@ p {
   padding: 0px;
 }
 
+* {
+  border: solid 1px red;
+}
+
 /* Animation */
 
 .animated {

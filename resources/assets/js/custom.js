@@ -100,8 +100,11 @@ function getJsonArray(){
 		}
 	]`);
 };
-
-//PRELOADER
+/*
+* ********************************************
+* Preloader
+* ********************************************
+* */
 $(window).on('load', function () {
 	var $preloader = $('#page-preloader'),
 		$spinner   = $preloader.find('.spinner');
@@ -109,8 +112,11 @@ $(window).on('load', function () {
 	$preloader.delay(350).fadeOut('slow');
 });
 
-//MAP: Animate
-
+/*
+* ********************************************
+* Map: Animation
+* ********************************************
+* */
 $('.map').hover(
     (event) => {
 		$('.map-header > .center')
@@ -129,3 +135,21 @@ $('.map').hover(
 			.addClass('opacityIn animated');
 	}
 );
+/*
+* ********************************************
+* Confir password
+* ********************************************
+* */
+let password = document.getElementById("password")
+let confirm_password = document.getElementById("confirm_password");
+
+function validatePassword(){
+    if(password.value != confirm_password.value) {
+        confirm_password.setCustomValidity("Passwords Don't Match");
+    } else {
+        confirm_password.setCustomValidity('');
+    }
+}
+
+password.onchange = validatePassword;
+confirm_password.onkeyup = validatePassword;

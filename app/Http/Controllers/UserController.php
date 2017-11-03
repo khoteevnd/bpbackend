@@ -34,6 +34,7 @@ class UserController extends Controller
     */
     public function update_avatar(Request $request)
     {
+        //
         $pathToSaveAvatar = 'app'.DIRECTORY_SEPARATOR.'public'.DIRECTORY_SEPARATOR.'avatar'.DIRECTORY_SEPARATOR;
         $pathTmp = 'tmp'.DIRECTORY_SEPARATOR;
 
@@ -91,13 +92,16 @@ class UserController extends Controller
 
         $image->destroy();
 
-        return view('users.profile', ['user' => Auth::user()] );
+        return redirect()->route('profile')->with('status', __('profile.updated'));
+    }
+
+    public function edit_password(Request $request)
+    {
+        dd($request);
     }
 
     public function getFiles($dir)
     {
-        //dd($dir);
-
         $files = Storage::files($dir);
 
         dd($files);
