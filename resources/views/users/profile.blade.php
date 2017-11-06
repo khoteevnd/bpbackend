@@ -23,9 +23,9 @@
                 <form id="update_avata" class="update_avatar" enctype="multipart/form-data" action="{{ route("update_avatar") }}" method="POST" role="form">
                     <div class="form-group">
                         <label>{{__('profile.label')}}</label>
-                        <input type="file" name="avatar">
-                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                        <input type="submit"  name="submit1" class="pull-right btn btn-sm btn-primary" value="{{__('profile.submit')}}">
+                        <input type="file" name="avatar" form="update_avatar">
+                        <input type="hidden" name="_token" value="{{ csrf_token() }}" form="update_avatar">
+                        <input type="submit"  name="submit1" class="pull-right btn btn-sm btn-primary" value="{{__('profile.submit')}}" form="update_avatar" formaction="{{ route("update_avatar") }}">
                     </div>
                 </form>
             </div>
@@ -36,14 +36,14 @@
                 <form id="update_password" class="update_password" enctype="text/plain" action="{{ route("edit_password") }}" method="POST" role="form">
                     <div class="form-group">
                         <label>{{__('profile.enter_new_password')}}</label>
-                        <input type="password" name="password" id="password" required placeholder="{{__('profile.enter_new_password')}}">
+                        <input type="password" name="password" id="password" required placeholder="{{__('profile.enter_new_password')}}" form="update_password">
                     </div>
                     <div class="form-group">
                         <label>{{__('profile.confirm_new_password')}}</label>
-                        <input type="password" name="confirm_password" id="confirm_password" required placeholder="{{__('profile.confirm_new_password')}}" size="40">
+                        <input type="password" name="confirm_password" id="confirm_password" required placeholder="{{__('profile.confirm_new_password')}}" size="40" form="update_password">
                     </div>
-                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                    <input type="submit" name="submit2" class="pull-right btn btn-sm btn-primary" value="{{__('profile.submit')}}">
+                    <input type="hidden" name="_token" value="{{ csrf_token() }}" form="update_password">
+                    <input type="submit" name="submit2" class="pull-right btn btn-sm btn-primary" value="{{__('profile.submit')}}" form="update_password" formaction="{{ route("edit_password") }}">
                 </form>
             </div>
         </div>
