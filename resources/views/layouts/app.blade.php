@@ -2,9 +2,7 @@
 <html lang="{{ app()->getLocale() }}">
 @include('sections.head')
     <body>
-        <div class="container">
-            @yield('content')
-        </div>
+        @yield('content')
         @include('sections.scripts')
     </body>
 </html>

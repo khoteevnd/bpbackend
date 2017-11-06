@@ -10376,8 +10376,11 @@ __WEBPACK_IMPORTED_MODULE_0_jquery__(document).on('click', 'a', function (event)
 function getJsonArray() {
 	return JSON.parse("[\n\t\t{\n\t\t\t\"id\": 1,\n\t\t\t\"position\":\"\u0414\u0438\u0440\u0435\u043A\u0442\u043E\u0440\",\n\t\t\t\"firstName\":\"\u0404\u0432\u0433\u0435\u043D\",\n\t\t\t\"surName\":\"\u0413\u0440\u0456\u0431\u0430\u0447\u043E\u0432\",\n\t\t\t\"patronymic\":\"\u0421\u0435\u0440\u0433\u0456\u0439\u043E\u0432\u0438\u0447\",\n\t\t\t\"img\": \"\"\n\t\t},\n\t\t{\n\t\t\t\"id\": 2,\n\t\t\t\"position\":\"\u0417\u0430\u0441\u0442\u0443\u043F\u043D\u0438\u043A \u0434\u0438\u0440\u0435\u043A\u0442\u043E\u0440\u0430\",\n\t\t\t\"firstName\":\"\u0413\u0430\u043B\u0438\u043D\u0430\",\n\t\t\t\"surName\":\"\u0421\u0442\u0435\u0446\u044C\",\n\t\t\t\"patronymic\":\"\u0412\u0430\u0441\u0438\u043B\u0456\u0432\u043D\u0430\"\n\t\t},\n\t\t{\n\t\t\t\"id\": 3,\n\t\t\t\"position\":\"\u0413\u043E\u043B\u043E\u0432\u043D\u0438\u0439 \u0431\u0443\u0445\u0433\u0430\u043B\u0442\u0435\u0440\",\n\t\t\t\"firstName\":\"\u0406\u0440\u0438\u043D\u0430\",\n\t\t\t\"surName\":\"\u0422\u0438\u0442\u0438\u043A\u0430\u043B\u043E\",\n\t\t\t\"patronymic\":\"\u0412\u043E\u043B\u043E\u0434\u0438\u043C\u0438\u0440\u0456\u0432\u043D\u0430\"\n\t\t},\n\t\t{\n\t\t\t\"id\": 4,\n\t\t\t\"position\":\"\u041C\u0435\u043D\u0435\u0434\u0436\u0435\u0440 (\u0443\u043F\u0440\u0430\u0432\u0438\u0442\u0435\u043B\u044C) \u0437 \u0430\u0434\u043C\u0456\u043D\u0456\u0441\u0442\u0440\u0430\u0442\u0438\u0432\u043D\u043E\u0457 \u0434\u0456\u044F\u043B\u044C\u043D\u043E\u0441\u0442\u0456\",\n\t\t\t\"firstName\":\"\u0412\u0456\u043A\u0442\u043E\u0440\u0456\u044F\",\n\t\t\t\"surName\":\"\u0420\u0435\u0448\u0435\u0442\u043A\u0456\u043D\u0430\",\n\t\t\t\"patronymic\":\"\u0412\u043E\u043B\u043E\u0434\u0438\u043C\u0438\u0440\u0456\u0432\u043D\u0430\"\n\t\t},\n\t\t{\n\t\t\t\"id\": 5,\n\t\t\t\"position\":\"\u041F\u0440\u043E\u0432\u0456\u0434\u043D\u0438\u0439 \u0444\u0430\u0445\u0456\u0432\u0435\u0446\u044C \u0456\u0437 \u0437\u0432`\u044F\u0437\u043A\u0456\u0432 \u0437 \u0433\u0440\u043E\u043C\u0430\u0434\u0441\u044C\u043A\u0456\u0441\u0442\u044E \u0442\u0430 \u043F\u0440\u0435\u0441\u043E\u044E\",\n\t\t\t\"firstName\":\"\u0406\u0440\u0438\u043D\u0430\",\n\t\t\t\"surName\":\"\u042E\u043C\u0456\u043D\u0430\",\n\t\t\t\"patronymic\":\"\u0412\u043E\u043B\u043E\u0434\u0438\u043C\u0438\u0440\u0456\u0432\u043D\u0430\"\n\t\t},\n\t\t{\n\t\t\t\"id\": 6,\n\t\t\t\"position\":\"\u0424\u0430\u0445\u0456\u0432\u0435\u0446\u044C \u0437 \u0435\u043A\u043E\u043B\u043E\u0433\u0456\u0447\u043D\u043E\u0457 \u043E\u0441\u0432\u0456\u0442\u0438\",\n\t\t\t\"firstName\":\"\u0414\u0430\u043D\u0430\",\n\t\t\t\"surName\":\"\u041C\u0430\u0440\u0446\u0435\u043D\u044E\u043A\",\n\t\t\t\"patronymic\":\"\u041C\u0438\u0440\u043E\u0441\u043B\u0430\u0432\u0456\u0432\u043D\u0430\"\n\t\t},\n\t\t{\n\t\t\t\"id\": 7,\n\t\t\t\"position\":\"\u0413\u043E\u043B\u043E\u0432\u043D\u0438\u0439 \u0431\u0456\u043E\u043B\u043E\u0433\",\n\t\t\t\"firstName\":\"\u0406\u0433\u043E\u0440\",\n\t\t\t\"surName\":\"\u041E\u0431\u043E\u043B\u0435\u0448\u0435\u0432\",\n\t\t\t\"patronymic\":\"\u041E\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u0440\u043E\u0432\u0438\u0447\"\n\t\t},\n\t\t{\n\t\t\t\"id\": 8,\n\t\t\t\"position\":\"\u0411\u0456\u043E\u043B\u043E\u0433\",\n\t\t\t\"firstName\":\"\u041E\u043B\u0435\u043A\u0441\u0456\u0439\",\n\t\t\t\"surName\":\"\u0421\u0435\u0440\u0431\u0456\u043D\",\n\t\t\t\"patronymic\":\"\u0406\u0432\u0430\u043D\u043E\u0432\u0438\u0447\"\n\t\t},\n\t\t{\n\t\t\t\"id\": 9,\n\t\t\t\"position\":\"\u0424\u0430\u0445\u0456\u0432\u0435\u0446\u044C\",\n\t\t\t\"firstName\":\"\u0412\u043E\u043B\u043E\u0434\u0438\u043C\u0438\u0440\",\n\t\t\t\"surName\":\"\u041A\u043E\u043D\u043E\u043D\u0435\u0446\u044C\",\n\t\t\t\"patronymic\":\"\u0406\u0432\u0430\u043D\u043E\u0432\u0438\u0447\"\n\t\t}\n\t]");
 };
-
-//PRELOADER
+/*
+* ********************************************
+* Preloader
+* ********************************************
+* */
 __WEBPACK_IMPORTED_MODULE_0_jquery__(window).on('load', function () {
 	var $preloader = __WEBPACK_IMPORTED_MODULE_0_jquery__('#page-preloader'),
 	    $spinner = $preloader.find('.spinner');
@@ -10385,8 +10388,11 @@ __WEBPACK_IMPORTED_MODULE_0_jquery__(window).on('load', function () {
 	$preloader.delay(350).fadeOut('slow');
 });
 
-//MAP: Animate
-
+/*
+* ********************************************
+* Map: Animation
+* ********************************************
+* */
 __WEBPACK_IMPORTED_MODULE_0_jquery__('.map').hover(function (event) {
 	__WEBPACK_IMPORTED_MODULE_0_jquery__('.map-header > .center').removeClass('zoomIn animated').addClass('zoomOut animated');
 	__WEBPACK_IMPORTED_MODULE_0_jquery__('.map-header > .overley').removeClass('opacityIn animated').addClass('opacityOut animated');
@@ -10394,6 +10400,24 @@ __WEBPACK_IMPORTED_MODULE_0_jquery__('.map').hover(function (event) {
 	__WEBPACK_IMPORTED_MODULE_0_jquery__('.map-header .center').removeClass('zoomOut animated').addClass('zoomIn animated');
 	__WEBPACK_IMPORTED_MODULE_0_jquery__('.map-header .overley').removeClass('opacityOut animated').addClass('opacityIn animated');
 });
+/*
+* ********************************************
+* Confir password
+* ********************************************
+* */
+var password = document.getElementById("password");
+var confirm_password = document.getElementById("confirm_password");
+
+function validatePassword() {
+	if (password.value != confirm_password.value) {
+		confirm_password.setCustomValidity("Passwords Don't Match");
+	} else {
+		confirm_password.setCustomValidity('');
+	}
+}
+
+password.onchange = validatePassword;
+confirm_password.onkeyup = validatePassword;
 
 /***/ })
 
