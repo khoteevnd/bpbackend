@@ -20,32 +20,18 @@
             <div class="col-md-10 col-md-offset-1">
                 <img src="{{ \Illuminate\Support\Facades\Storage::url("avatar/".$user->avatar) }}" style="width:150px; height:150px; float:left; border-radius:50%; margin-right:25px;">
                 <h2>{{__('profile.profile')}} {{ $user->name }}</h2>
-                <form id="update_avata" class="update_avatar" enctype="multipart/form-data" action="{{ route("update_avatar") }}" method="POST" role="form">
+                <form id="update_avata" class="update_avatar" enctype="multipart/form-data" action="{{ route("update_avatar") }}" method="POST">
+                    {{ csrf_field() }}
                     <div class="form-group">
                         <label>{{__('profile.label')}}</label>
-                        <input type="file" name="avatar" form="update_avatar">
-                        <input type="hidden" name="_token" value="{{ csrf_token() }}" form="update_avatar">
-                        <input type="submit"  name="submit1" class="pull-right btn btn-sm btn-primary" value="{{__('profile.submit')}}" form="update_avatar" formaction="{{ route("update_avatar") }}">
+                        <input type="file" name="avatar">
+                        <input type="submit"  name="submit1" class="pull-right btn btn-sm btn-primary" value="{{__('profile.submit')}}">
                     </div>
                 </form>
             </div>
         </div>
         <div class="row">
-            <div class="col-md-10 col-md-offset-1">
-                <h2>{{__('profile.edit_password')}}</h2>
-                <form id="update_password" class="update_password" enctype="text/plain" action="{{ route("edit_password") }}" method="POST" role="form">
-                    <div class="form-group">
-                        <label>{{__('profile.enter_new_password')}}</label>
-                        <input type="password" name="password" id="password" required placeholder="{{__('profile.enter_new_password')}}" form="update_password">
-                    </div>
-                    <div class="form-group">
-                        <label>{{__('profile.confirm_new_password')}}</label>
-                        <input type="password" name="confirm_password" id="confirm_password" required placeholder="{{__('profile.confirm_new_password')}}" size="40" form="update_password">
-                    </div>
-                    <input type="hidden" name="_token" value="{{ csrf_token() }}" form="update_password">
-                    <input type="submit" name="submit2" class="pull-right btn btn-sm btn-primary" value="{{__('profile.submit')}}" form="update_password" formaction="{{ route("edit_password") }}">
-                </form>
-            </div>
+            <a href="{{ route('edit_password') }}" target="_blank">Змінити пароль</a>
         </div>
     </div>
 @endsection

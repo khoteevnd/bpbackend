@@ -95,9 +95,9 @@ class UserController extends Controller
         return redirect()->route('profile')->with('status', __('profile.updated'));
     }
 
-    public function edit_password(Request $request)
+    public function showEditPasswordView()
     {
-        dd($request);
+        return view('users.editpassword');
     }
 
     public function getFiles($dir)
