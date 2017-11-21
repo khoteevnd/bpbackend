@@ -1,13 +1,4 @@
 {
     "/js/app.js": "/js/app.js",
-    "/css/custom.css": "/css/custom.css",
-    "/js/custom.js": "/js/custom.js",
-    "/js/owl.js": "/js/owl.js",
-    "/js/SmoothScroll.js": "/js/SmoothScroll.js",
-    "/css/libs/animate.min.css": "/css/libs/animate.min.css",
-    "/css/libs/owl.carousel.min.css": "/css/libs/owl.carousel.min.css",
-    "/css/fonts/mapglyphs/2.0": "/css/fonts/mapglyphs/2.0",
-    "/js/libs/jquery.min.js": "/js/libs/jquery.min.js",
-    "/js/libs/holder.min.js": "/js/libs/holder.min.js",
-    "/js/libs/owl.carousel.min.js": "/js/libs/owl.carousel.min.js"
+    "/js/libs/jquery.min.js": "/js/libs/jquery.min.js"
 }

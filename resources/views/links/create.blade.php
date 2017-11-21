@@ -1,28 +1,23 @@
 @extends('layouts.app')
 
 @section('content')
+    @if (session('status'))
+        <div class="alert alert-success">
+            {{ session('status') }}
+        </div>
+    @endif
+    @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
     <div class="container">
-        <h3>Ссылки:</h3>
+        <h3>Створити Посилання:</h3>
         <hr>
-        <table class="table table-striped">
-            <thead>
-            <tr>
-                <th>id</th>
-                <th>Текст</th>
-                <th>href</th>
-            </tr>
-            </thead>
-            <tbody>
-            @foreach($links as $link)
-                <tr>
-                    <td>{{$link->id}}</td>
-                    <td>{{$link->text}}</td>
-                    <td>{{$link->href}}</td>
-                </tr>
-            @endforeach
-            </tbody>
-        </table>
-
         <form method="post" action="{{url('links')}}">
             {{csrf_field()}}
             <div class="form-group row">

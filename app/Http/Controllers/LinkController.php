@@ -2,6 +2,7 @@
 
 namespace budprirodi\Http\Controllers;
 
+use Validator;
 use budprirodi\Link;
 use Illuminate\Http\Request;
 
@@ -15,7 +16,7 @@ class LinkController extends Controller
     public function index()
     {
         $all_link = Link::all();
-        return view("links.show_links", ['links' => $all_link]);
+        return view("links.index")->with('links', $all_link);
     }
 
     /**
@@ -25,7 +26,7 @@ class LinkController extends Controller
      */
     public function create()
     {
-        //
+        return view('links.create');
     }
 
     /**
@@ -36,6 +37,19 @@ class LinkController extends Controller
      */
     public function store(Request $request)
     {
+        $validator = Validator::make($request->all(), [
+            'text' => 'required|unique:links|max:255|min:3',
+            'href' => 'required|min:3',
+        ]);
+
+
+
+        if ($validator->fails()) {
+            return redirect('links/create')
+                ->withErrors($validator)
+                ->withInput();
+        }
+
         $link = new Link([
             'text' => $request->get('text'),
             'href' => $request->get('href')
@@ -64,7 +78,7 @@ class LinkController extends Controller
      */
     public function edit(Link $link)
     {
-        //
+        return view('links.edit')->with('link', $link);
     }
 
     /**
@@ -76,7 +90,16 @@ class LinkController extends Controller
      */
     public function update(Request $request, Link $link)
     {
-        //
+        $validator = Validator::make($request->all(), [
+            'text' => 'required|unique:links|max:255|min:3',
+            'href' => 'required|min:3',
+        ]);
+
+        if ($validator->fails()) {
+            return redirect('links/'.$link->id.'/edit')
+                ->withErrors($validator)
+                ->withInput();
+        }
     }
 
     /**
