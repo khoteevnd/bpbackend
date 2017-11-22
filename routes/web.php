@@ -5,17 +5,17 @@ Route::get('/', function () {
 });
 //Route::middleware(['locate'])->group(function () {
     Route::prefix('uk')->group(function () {
-        Route::resource('/photos', 'PhotoController');
-        Route::resource('/albums', 'AlbumsController');
+        Route::resource('photos', 'PhotoController');
+        Route::resource('albums', 'AlbumsController');
     });
 
     Route::prefix('en')->group(function () {
-        Route::resource('/photos', 'PhotoController');
-        Route::resource('/albums', 'AlbumsController');
+        Route::resource('photos', 'PhotoController');
+        Route::resource('albums', 'AlbumsController');
     });
 
-    Route::resource('/photos', 'PhotoController');
-    Route::resource('/albums', 'AlbumsController');
+    Route::resource('photos', 'PhotoController');
+    Route::resource('albums', 'AlbumsController');
 //});
 
 Auth::routes();
