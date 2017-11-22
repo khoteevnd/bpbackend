@@ -1,6 +1,8 @@
 {
     "/js/app.js": "/js/app.js",
-    "/css/custom.css": "/css/custom.css",
+<<<<<<< HEAD
+    "/js/libs/jquery.min.js": "/js/libs/jquery.min.js"
+=======
     "/js/custom.js": "/js/custom.js",
     "/js/owl.js": "/js/owl.js",
     "/js/SmoothScroll.js": "/js/SmoothScroll.js",
@@ -10,4 +12,5 @@
     "/js/libs/jquery.min.js": "/js/libs/jquery.min.js",
     "/js/libs/holder.min.js": "/js/libs/holder.min.js",
     "/js/libs/owl.carousel.min.js": "/js/libs/owl.carousel.min.js"
+>>>>>>> 7fed4fefa854788c1e8b13375e4d60136854e90e
 }

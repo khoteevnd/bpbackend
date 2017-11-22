@@ -30,6 +30,13 @@ class RegisterController extends Controller
     protected $redirectTo = '/home';
 
     /**
+     * Default Avatar name file in Storage Application.
+     *
+     * @var string
+     */
+    protected $avatarNameDefault = 'default.jpg';
+
+    /**
      * Create a new controller instance.
      *
      * @return void
@@ -66,6 +73,7 @@ class RegisterController extends Controller
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
+            'avatar' =>$this->avatarNameDefault,
         ]);
     }
 }

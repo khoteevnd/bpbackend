@@ -10,7 +10,7 @@
 @include('sections.header')
 @include('sections.history')
 @include('sections.btn-to-top')
-
+@yield('content')
 @include('sections.scripts')
 </body>
 </html>
