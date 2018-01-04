@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateLinkTable extends Migration
+class CreateLinksTable extends Migration
 {
     /**
      * The default value in column href
@@ -19,7 +19,7 @@ class CreateLinkTable extends Migration
      */
     public function up()
     {
-        Schema::create('link', function (Blueprint $table) {
+        Schema::create('links', function (Blueprint $table) {
             $table->increments('id');
             $table->string('text')->unsigned();
             $table->string('href')->default($this->default_href);
@@ -33,6 +33,6 @@ class CreateLinkTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('link');
+        Schema::dropIfExists('links');
     }
 }
