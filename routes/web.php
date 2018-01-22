@@ -27,6 +27,7 @@ Route::resource('links', 'linkController');
 //});
 
 Auth::routes();
+
 Route::get('/profile', 'UserController@profile')->name('profile');
 Route::post('/profile/update/avatar', 'UserController@update_avatar')->name('update_avatar');
 Route::post('/profile/update/password', 'UserController@updatePassword')->name('update_password');

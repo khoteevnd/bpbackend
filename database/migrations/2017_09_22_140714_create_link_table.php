@@ -19,10 +19,11 @@ class CreateLinkTable extends Migration
      */
     public function up()
     {
-        Schema::create('link', function (Blueprint $table) {
+        Schema::create('links', function (Blueprint $table) {
             $table->increments('id');
             $table->string('text')->unsigned();
             $table->string('href')->default($this->default_href);
+            $table->integer('order');
             $table->timestamps();
         });
     }

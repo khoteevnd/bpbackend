@@ -38,8 +38,9 @@ class LinkController extends Controller
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'text' => 'required|unique:links|max:255|min:3',
+            'text' => 'required|max:255|min:3',
             'href' => 'required|min:3',
+            'order' => 'required|integer',
         ]);
 
 
@@ -52,7 +53,8 @@ class LinkController extends Controller
 
         $link = new Link([
             'text' => $request->get('text'),
-            'href' => $request->get('href')
+            'href' => $request->get('href'),
+            'order' => $request->get('order'),
         ]);
 
         $link->save();
@@ -67,7 +69,7 @@ class LinkController extends Controller
      */
     public function show(Link $link)
     {
-        //
+        return view('links.show', ['link' => $link]);
     }
 
     /**
@@ -91,8 +93,9 @@ class LinkController extends Controller
     public function update(Request $request, Link $link)
     {
         $validator = Validator::make($request->all(), [
-            'text' => 'required|unique:links|max:255|min:3',
+            'text' => 'required|max:255|min:3',
             'href' => 'required|min:3',
+            'order' => 'required|indeger'
         ]);
 
         if ($validator->fails()) {
@@ -100,6 +103,14 @@ class LinkController extends Controller
                 ->withErrors($validator)
                 ->withInput();
         }
+
+        $link->text = $request->get('text');
+        $link->href = $request->get('href');
+        $link->order = $request->get('order');
+
+        $link->saveOrFail();
+
+        return redirect()->route('links.index');
     }
 
     /**
@@ -110,6 +121,7 @@ class LinkController extends Controller
      */
     public function destroy(Link $link)
     {
-        //
+        $link->delete();
+        return back();
     }
 }
