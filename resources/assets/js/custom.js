@@ -25,12 +25,12 @@ $btnTop.on("click", (event) => {
  * Anchor scroll
  * ********************************************
  * */
-$(document).on('click', 'a', function(event){
-    event.preventDefault();
-    $('html, body').animate({
-        scrollTop: $( $.attr(this, 'href') ).offset().top
-    }, 900);
-});
+/*$(document).on('click', 'a', function(event){
+        event.preventDefault();
+        $('html, body').animate({
+            scrollTop: $( $.attr(this, 'href') ).offset().top
+        }, 900);
+});*/
 
 function getJsonArray(){
 	return JSON.parse(`[

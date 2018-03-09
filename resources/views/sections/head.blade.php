@@ -15,7 +15,7 @@
     <!-- Leaflet Map-->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css"/>
     <!-- CSS-->
-    <link rel="stylesheet" href="{{ asset('css/custom.css') }}"/>
+    {{--<link rel="stylesheet" href="{{ asset('css/custom.css') }}"/>--}}
     <!--Fonts css-->
     <link rel="stylesheet" href="{{ asset('css/fonts/mapglyphs/2.0/mapglyphs.css') }}"/>
     <link rel="stylesheet" href="{{ asset('css/fonts/font-awesome/css/font-awesome.min.css') }}"/>

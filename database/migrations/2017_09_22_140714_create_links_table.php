@@ -23,6 +23,7 @@ class CreateLinksTable extends Migration
             $table->increments('id');
             $table->string('text')->unsigned();
             $table->string('href')->default($this->default_href);
+            $table->integer('order');
             $table->timestamps();
         });
     }
