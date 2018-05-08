@@ -1032,9 +1032,6 @@ p {
   margin: 0px;
   padding: 0px; }
 
-.update_avatar .form-group {
-  border: 1px solid red; }
-
 /* Animation */
 .animated {
   -webkit-animation-duration: 1s;

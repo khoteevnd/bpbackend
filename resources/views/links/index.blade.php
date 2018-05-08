@@ -7,9 +7,9 @@
         <table class="table table-striped">
             <thead>
             <tr>
-                @foreach($links as $link)
+{{--                @foreach($links as $link)
                     <th></th>
-                @endforeach
+                @endforeach--}}
                 <th>id</th>
                 <th>Текст</th>
                 <th>href</th>
@@ -45,5 +45,6 @@
             @endforeach
             </tbody>
         </table>
+        <a class="btn btn-small btn-info" href="{{ route('links.create') }}">Додати</a>
     </div>
 @endsection

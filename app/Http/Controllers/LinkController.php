@@ -105,7 +105,7 @@ class LinkController extends Controller
         $validator = Validator::make($request->all(), [
             'text' => 'required|max:255|min:3',
             'href' => 'required|min:3',
-            'order' => 'required|indeger'
+            'order' => 'required|integer'
         ]);
 
         if ($validator->fails()) {
